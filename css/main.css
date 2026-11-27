@@ -50,6 +50,7 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  overflow-x: clip;
 }
 
 body {
@@ -60,7 +61,7 @@ body {
   color: var(--ink-900);
   background-color: var(--cream);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 img {
@@ -354,11 +355,12 @@ select {
 }
 
 .brand-sub {
-  font-size: 0.67rem;
-  letter-spacing: 0.18em;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  opacity: 0.8;
+  opacity: 0.85;
   margin-top: 2px;
+  white-space: nowrap;
 }
 
 .nav-links {
@@ -500,8 +502,8 @@ select {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 45%;
-  transform: scale(1.03);
+  object-position: 32% 45%;
+  transform: scale(1.02);
   filter: saturate(1.06);
 }
 
@@ -582,6 +584,7 @@ select {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  min-width: 0;
 }
 
 .field label {
@@ -595,6 +598,8 @@ select {
 .field input,
 .field select {
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
   height: 46px;
   padding: 0 14px;
   border: 1.5px solid rgba(22, 48, 36, 0.16);
@@ -1019,12 +1024,13 @@ select {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: clamp(26px, 4vw, 40px);
+  padding: clamp(24px, 4vw, 40px);
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 24px;
+  min-width: 0;
 }
 
 .contact-list {
@@ -1040,6 +1046,12 @@ select {
   display: flex;
   align-items: flex-start;
   gap: 14px;
+  min-width: 0;
+}
+
+.contact-row > div {
+  min-width: 0;
+  flex: 1;
 }
 
 .contact-icon {
@@ -1067,6 +1079,13 @@ select {
   font-size: 0.96rem;
   font-weight: 600;
   color: var(--ink-900);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.contact-value a {
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .contact-value a:hover {
@@ -1084,6 +1103,7 @@ select {
   border-radius: var(--radius-lg);
   overflow: hidden;
   min-height: 420px;
+  min-width: 0;
   box-shadow: var(--shadow-md);
   border: 1px solid var(--border);
   background: var(--cream-alt);
@@ -1348,7 +1368,7 @@ select {
 
   .villa-grid,
   .location-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .reviews-grid {
@@ -1366,7 +1386,7 @@ select {
   }
 
   .footer-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1388,11 +1408,61 @@ select {
 
   .hero {
     min-height: auto;
-    padding-top: 112px;
+    justify-content: flex-start;
+    padding-top: 0;
+    padding-bottom: 40px;
+  }
+
+  .hero-bg {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: clamp(320px, 48svh, 420px);
+    flex-shrink: 0;
+  }
+
+  .hero-bg img {
+    object-position: 18% 58%;
+    transform: none;
+  }
+
+  .hero-scrim {
+    background:
+      linear-gradient(180deg, rgba(13, 29, 22, 0.56) 0%, rgba(13, 29, 22, 0.12) 38%, rgba(13, 29, 22, 0.55) 76%, var(--forest-950) 100%);
+  }
+
+  .hero-content {
+    margin-top: -84px;
+    gap: 24px;
+  }
+
+  .hero-badge {
+    margin-bottom: 12px;
+    font-size: 0.72rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.15rem, 8.8vw, 2.85rem);
+    margin-bottom: 12px;
+  }
+
+  .hero-subtitle {
+    font-size: 0.96rem;
+    line-height: 1.6;
+  }
+
+  .booking-card {
+    padding: 18px;
+    border-radius: var(--radius-md);
   }
 
   .booking-form {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .booking-submit {
+    grid-column: 1 / -1;
   }
 
   .highlights-grid,
@@ -1400,7 +1470,7 @@ select {
   .gallery-grid,
   .villa-features,
   .footer-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .gallery-item.is-featured-span {
@@ -1408,7 +1478,7 @@ select {
   }
 
   .villa-collage {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .lightbox-prev {
@@ -1417,5 +1487,11 @@ select {
 
   .lightbox-next {
     right: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .booking-form {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
