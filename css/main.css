@@ -1,0 +1,1421 @@
+/* ==========================================================================
+   Mayflower Holiday Villa — 2026 Boutique Design System
+   Palette inspired by Meppadi tea estates & Kerala Mangalore terracotta roofs
+   ========================================================================== */
+
+:root {
+  --forest-950: #0d1d16;
+  --forest-900: #163024;
+  --forest-800: #1f4232;
+  --forest-700: #2b5944;
+  --forest-100: #e5eee9;
+
+  --terracotta: #b85038;
+  --terracotta-dark: #993e29;
+  --gold: #c9a05b;
+  --gold-soft: #e6cfa4;
+
+  --cream: #f7f4ee;
+  --cream-alt: #efeae0;
+  --surface: #ffffff;
+
+  --ink-900: #1a211d;
+  --ink-700: #3d4842;
+  --ink-500: #637069;
+  --border: rgba(22, 48, 36, 0.12);
+  --border-light: rgba(255, 255, 255, 0.18);
+
+  --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 4px 16px rgba(15, 34, 26, 0.06);
+  --shadow-md: 0 14px 36px rgba(15, 34, 26, 0.10);
+  --shadow-lg: 0 24px 60px rgba(13, 29, 22, 0.22);
+
+  --container: 1200px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-900);
+  background-color: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 12px;
+  z-index: 2000;
+  background: var(--forest-900);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  left: 16px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: clamp(20px, 4vw, 40px);
+}
+
+/* ==========================================================================
+   Typography & Shared Elements
+   ========================================================================== */
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 12px;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 1.5px;
+  background: currentColor;
+}
+
+.eyebrow--light {
+  color: var(--gold-soft);
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.15rem, 4.2vw, 3.35rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--forest-950);
+  margin: 0 0 16px;
+}
+
+.section-title--light {
+  color: #fff;
+}
+
+.section-lead {
+  font-size: 1.05rem;
+  color: var(--ink-700);
+  max-width: 60ch;
+  margin: 0;
+}
+
+.section {
+  padding-block: clamp(68px, 9vw, 116px);
+}
+
+.section--alt {
+  background-color: var(--cream-alt);
+}
+
+.section--forest {
+  background-color: var(--forest-900);
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.section-header {
+  max-width: 680px;
+  margin-bottom: clamp(36px, 5vw, 56px);
+}
+
+.section-header--center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.section-header--center .eyebrow {
+  justify-content: center;
+}
+
+.section-header--center .section-lead {
+  margin-inline: auto;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 24px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.94rem;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform 0.25s var(--ease), background-color 0.25s var(--ease), border-color 0.25s var(--ease), box-shadow 0.25s var(--ease), color 0.25s var(--ease);
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--primary {
+  background: var(--terracotta);
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(184, 80, 56, 0.28);
+}
+
+.btn--primary:hover {
+  background: var(--terracotta-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(184, 80, 56, 0.34);
+}
+
+.btn--whatsapp {
+  background: #1ea853;
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(30, 168, 83, 0.28);
+}
+
+.btn--whatsapp:hover {
+  background: #178f45;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(30, 168, 83, 0.35);
+}
+
+.btn--forest {
+  background: var(--forest-900);
+  color: #fff;
+}
+
+.btn--forest:hover {
+  background: var(--forest-800);
+  transform: translateY(-2px);
+}
+
+.btn--outline {
+  background: transparent;
+  border-color: var(--forest-900);
+  color: var(--forest-900);
+}
+
+.btn--outline:hover {
+  background: var(--forest-900);
+  color: #fff;
+}
+
+.btn--outline-light {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #fff;
+  backdrop-filter: blur(8px);
+}
+
+.btn--outline-light:hover {
+  background: #fff;
+  color: var(--forest-950);
+  border-color: #fff;
+}
+
+.btn--sm {
+  padding: 9px 18px;
+  font-size: 0.87rem;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Header / Sticky Navigation
+   ========================================================================== */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding-block: 18px;
+  transition: background-color 0.35s var(--ease), padding 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+
+.site-header.is-scrolled {
+  padding-block: 12px;
+  background: rgba(247, 244, 238, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 rgba(22, 48, 36, 0.08), 0 8px 28px rgba(15, 34, 26, 0.06);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  color: #fff;
+  transition: color 0.3s var(--ease);
+}
+
+.site-header.is-scrolled .brand {
+  color: var(--forest-950);
+}
+
+.brand-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(22, 48, 36, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.site-header.is-scrolled .brand-mark {
+  background: var(--forest-900);
+  border-color: transparent;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.brand-name {
+  font-family: var(--font-serif);
+  font-size: 1.38rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.brand-sub {
+  font-size: 0.67rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-top: 2px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.92);
+  position: relative;
+  padding-block: 4px;
+  white-space: nowrap;
+  transition: color 0.25s var(--ease);
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1.5px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s var(--ease);
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+.site-header.is-scrolled .nav-links a {
+  color: var(--ink-900);
+}
+
+.site-header.is-scrolled .nav-links a::after {
+  background: var(--terracotta);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(15, 34, 26, 0.35);
+  color: #fff;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+}
+
+.site-header.is-scrolled .menu-toggle {
+  color: var(--forest-950);
+  border-color: var(--border);
+  background: #fff;
+}
+
+.mobile-drawer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(13, 29, 22, 0.96);
+  backdrop-filter: blur(18px);
+  padding: 100px 28px 40px;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease);
+}
+
+.mobile-drawer.is-open {
+  display: flex;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mobile-nav a {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.mobile-drawer-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ==========================================================================
+   Hero & WhatsApp Booking Bar
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-top: 120px;
+  padding-bottom: clamp(40px, 6vw, 72px);
+  overflow: hidden;
+  background-color: var(--forest-950);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 45%;
+  transform: scale(1.03);
+  filter: saturate(1.06);
+}
+
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(13, 29, 22, 0.58) 0%, rgba(13, 29, 22, 0.22) 38%, rgba(13, 29, 22, 0.72) 78%, rgba(13, 29, 22, 0.92) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 4vw, 44px);
+}
+
+.hero-copy {
+  max-width: 780px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.13);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  backdrop-filter: blur(10px);
+  color: var(--gold-soft);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.65rem, 6vw, 4.75rem);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  color: #fff;
+  margin: 0 0 18px;
+  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.35);
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 1.5vw, 1.18rem);
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 56ch;
+  margin: 0;
+}
+
+/* Booking Bar */
+.booking-card {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-lg);
+  padding: 20px 22px;
+  box-shadow: var(--shadow-lg);
+}
+
+.booking-form {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) auto;
+  gap: 14px;
+  align-items: end;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+}
+
+.field input,
+.field select {
+  width: 100%;
+  height: 46px;
+  padding: 0 14px;
+  border: 1.5px solid rgba(22, 48, 36, 0.16);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  font-size: 0.93rem;
+  font-weight: 500;
+  color: var(--ink-900);
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.field input:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--forest-800);
+  box-shadow: 0 0 0 3px rgba(31, 66, 50, 0.12);
+}
+
+.booking-submit {
+  height: 46px;
+  padding-inline: 22px;
+}
+
+.booking-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 0.84rem;
+  color: var(--ink-500);
+}
+
+.booking-meta-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.booking-meta a {
+  color: var(--forest-900);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.booking-meta a:hover {
+  color: var(--terracotta);
+}
+
+.booking-error {
+  display: none;
+  margin-top: 10px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--terracotta-dark);
+}
+
+.booking-error.is-visible {
+  display: block;
+}
+
+/* ==========================================================================
+   Highlights Strip
+   ========================================================================== */
+
+.highlights-strip {
+  background: var(--forest-900);
+  color: #fff;
+  padding-block: 28px;
+}
+
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.highlight-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--gold-soft);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.highlight-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0 0 2px;
+  color: #fff;
+}
+
+.highlight-desc {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   The Villas — Asymmetric Editorial Showcase
+   ========================================================================== */
+
+.villa-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(32px, 5vw, 68px);
+  align-items: center;
+}
+
+.villa-collage {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 14px;
+}
+
+.collage-card {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: var(--forest-950);
+  aspect-ratio: 16 / 10;
+}
+
+.collage-card--wide {
+  grid-column: 1 / -1;
+  aspect-ratio: 16 / 9;
+}
+
+.collage-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.65s var(--ease);
+}
+
+.collage-card:hover img {
+  transform: scale(1.04);
+}
+
+.collage-caption {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(13, 29, 22, 0.72);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.villa-features {
+  list-style: none;
+  padding: 0;
+  margin: 26px 0 30px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.villa-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.94rem;
+  font-weight: 500;
+  color: var(--ink-900);
+  background: var(--surface);
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+.villa-features svg {
+  color: var(--terracotta);
+  flex-shrink: 0;
+}
+
+.villa-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}
+
+.rate-note {
+  font-size: 0.86rem;
+  color: var(--ink-500);
+  margin-top: 14px;
+}
+
+/* ==========================================================================
+   Gallery & Filter Tabs
+   ========================================================================== */
+
+.gallery-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 34px;
+}
+
+.filter-btn {
+  padding: 9px 18px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--ink-700);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.22s var(--ease);
+}
+
+.filter-btn:hover {
+  border-color: var(--forest-900);
+  color: var(--forest-900);
+}
+
+.filter-btn.is-active {
+  background: var(--forest-900);
+  border-color: var(--forest-900);
+  color: #fff;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: var(--forest-950);
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.gallery-item.is-featured-span {
+  grid-column: span 2;
+  grid-row: span 2;
+  aspect-ratio: auto;
+  height: 100%;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s var(--ease);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(13, 29, 22, 0.65) 100%);
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
+}
+
+.gallery-item:hover::after,
+.gallery-item:focus-visible::after {
+  opacity: 1;
+}
+
+.gallery-caption {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 12px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  color: #fff;
+  font-size: 0.83rem;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+  text-align: left;
+}
+
+.gallery-item:hover .gallery-caption,
+.gallery-item:focus-visible .gallery-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery-footer {
+  text-align: center;
+  margin-top: 32px;
+}
+
+/* ==========================================================================
+   Guest Reviews
+   ========================================================================== */
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.review-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.review-stars {
+  color: var(--gold);
+  letter-spacing: 2px;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+.review-quote {
+  margin: 0;
+  font-size: 0.94rem;
+  line-height: 1.7;
+  color: var(--ink-700);
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.review-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--forest-100);
+  color: var(--forest-900);
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.review-name {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--forest-950);
+  display: block;
+}
+
+.review-source {
+  font-size: 0.78rem;
+  color: var(--ink-500);
+}
+
+.reviews-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 38px;
+}
+
+/* ==========================================================================
+   Location & Contact
+   ========================================================================== */
+
+.location-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.15fr;
+  gap: clamp(28px, 4.5vw, 52px);
+  align-items: stretch;
+}
+
+.contact-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: clamp(26px, 4vw, 40px);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--forest-100);
+  color: var(--forest-900);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.contact-label {
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+  margin-bottom: 2px;
+}
+
+.contact-value {
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: var(--ink-900);
+}
+
+.contact-value a:hover {
+  color: var(--terracotta);
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 10px;
+}
+
+.map-frame {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  min-height: 420px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+  background: var(--cream-alt);
+}
+
+.map-frame iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  border: 0;
+  display: block;
+}
+
+/* ==========================================================================
+   Closing CTA Banner
+   ========================================================================== */
+
+.cta-banner {
+  position: relative;
+  padding-block: clamp(72px, 10vw, 120px);
+  overflow: hidden;
+  background: var(--forest-950);
+  text-align: center;
+  color: #fff;
+}
+
+.cta-banner-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.cta-banner-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.34;
+}
+
+.cta-banner-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+  margin-inline: auto;
+}
+
+.cta-banner p {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 1.06rem;
+  margin: 0 auto 28px;
+}
+
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.site-footer {
+  background: var(--forest-950);
+  color: rgba(255, 255, 255, 0.76);
+  padding-block: 54px 36px;
+  border-top: 1px solid var(--border-light);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 36px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-heading {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin: 0 0 14px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.92rem;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 24px;
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.56);
+}
+
+/* ==========================================================================
+   Lightbox Modal
+   ========================================================================== */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(10, 20, 15, 0.94);
+  backdrop-filter: blur(14px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s var(--ease);
+}
+
+.lightbox.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-stage {
+  position: relative;
+  z-index: 1;
+  max-width: min(1120px, calc(100vw - 144px));
+  max-height: 78vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: 78vh;
+  border-radius: var(--radius-md);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55);
+  object-fit: contain;
+}
+
+.lightbox-bar {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: min(1120px, 92vw);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.92rem;
+}
+
+.lightbox-counter {
+  font-variant-numeric: tabular-nums;
+  color: var(--gold-soft);
+  font-weight: 600;
+}
+
+.lightbox-btn {
+  position: fixed;
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(13, 29, 22, 0.78);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: background-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.lightbox-btn:hover {
+  background: rgba(22, 48, 36, 0.95);
+}
+
+.lightbox-close {
+  top: 20px;
+  right: 20px;
+}
+
+.lightbox-prev {
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-next {
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* ==========================================================================
+   Scroll Reveal Animations
+   ========================================================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+@media (max-width: 1080px) {
+  .nav-links {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .booking-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .booking-submit {
+    grid-column: 1 / -1;
+  }
+
+  .highlights-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .villa-grid,
+  .location-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reviews-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gallery-item.is-featured-span {
+    grid-column: span 2;
+    grid-row: span 1;
+    aspect-ratio: 16 / 9;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 820px) {
+  .nav-links,
+  .header-actions {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 768px) {
+  .lightbox-stage {
+    max-width: 94vw;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 112px;
+  }
+
+  .booking-form {
+    grid-template-columns: 1fr;
+  }
+
+  .highlights-grid,
+  .reviews-grid,
+  .gallery-grid,
+  .villa-features,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-item.is-featured-span {
+    grid-column: span 1;
+  }
+
+  .villa-collage {
+    grid-template-columns: 1fr;
+  }
+
+  .lightbox-prev {
+    left: 10px;
+  }
+
+  .lightbox-next {
+    right: 10px;
+  }
+}
